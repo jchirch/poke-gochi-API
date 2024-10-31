@@ -49,5 +49,6 @@ group :development do
   # gem "spring"
 end
 
+gem 'jsonapi-serializer'
 #data persistance gem
 
