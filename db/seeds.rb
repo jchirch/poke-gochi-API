@@ -13,7 +13,7 @@ Trainer.create!(
 )
 
 Pokemon.create!(
-    name:"gastly",
+    name:"Gastly",
     description: "spooky boi",
     img_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/92.gif",
     cry_url: "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/92.ogg",
@@ -23,11 +23,11 @@ Pokemon.create!(
     energy: 110,
     max_energy: 110,
     happiness: 100,
-    user_id: 1
+    trainer_id: 1
 )
 
 Pokemon.create!(
-    name:"charmander",
+    name:"Charmander",
     description: "hot lil doggy",
     img_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/4.gif",
     cry_url: "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/4.ogg",
@@ -37,7 +37,7 @@ Pokemon.create!(
     energy: 110,
     max_energy: 110,
     happiness: 100,
-    user_id: 1
+    trainer_id: 1
 )
 
 Pokemon.create!(
@@ -51,7 +51,7 @@ Pokemon.create!(
     energy: 110,
     max_energy: 110,
     happiness: 100,
-    user_id: 1
+    trainer_id: 1
 )
 
 Pokemon.create!(
@@ -65,7 +65,7 @@ Pokemon.create!(
     energy: 100,
     max_energy: 150,
     happiness: 80,
-    user_id: 1
+    trainer_id: 1
 )
 
 # Pokemon.create!(
