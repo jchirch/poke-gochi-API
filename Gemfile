@@ -42,6 +42,7 @@ group :development, :test do
   gem 'pry', '~> 0.14.1'
   gem 'shoulda-matchers', '~> 6.0'
   gem 'simplecov', require: false, group: :test
+  gem 'faraday'
 end
 
 group :development do
