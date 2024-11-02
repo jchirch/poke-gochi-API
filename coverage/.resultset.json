@@ -5,6 +5,7 @@
         "lines": [
           1,
           1,
+          1,
           null
         ]
       },
@@ -15,55 +16,14 @@
           null
         ]
       },
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/controllers/api/v1/trainers_controller.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          2,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/serializers/trainer_serializer.rb": {
+      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/models/pokemon.rb": {
         "lines": [
           1,
           1,
-          1,
-          null
-        ]
-      },
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/serializers/error_serializer.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
           null
         ]
       }
     },
-    "timestamp": 1730505913
+    "timestamp": 1730581607
   }
 }
