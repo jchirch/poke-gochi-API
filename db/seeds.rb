@@ -15,7 +15,7 @@ Trainer.create!(
 Pokemon.create!(
     name:"Gastly",
     description: "spooky boi",
-    img_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/92.gif",
+    gif_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/92.gif",
     cry_url: "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/92.ogg",
     small_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png",
     level: 1,
@@ -29,7 +29,7 @@ Pokemon.create!(
 Pokemon.create!(
     name:"Charmander",
     description: "hot lil doggy",
-    img_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/4.gif",
+    gif_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/4.gif",
     cry_url: "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/4.ogg",
     small_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/4.png",
     level: 1,
@@ -43,7 +43,7 @@ Pokemon.create!(
 Pokemon.create!(
     name: "Magikarp",
     description: "In the distant past, it was somewhat stronger than the horribly weak descendants that exist today.",
-    img_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/129.gif",
+    gif_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/129.gif",
     cry_url: "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/129.ogg",
     small_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/129.png",
     level: 1,
@@ -57,7 +57,7 @@ Pokemon.create!(
 Pokemon.create!(
     name: "Shinx",
     description: "This Pokémon generates electricity by contracting\nits muscles. Excited trembling is a sign that Shinx\nis generating a tremendous amount of electricity.",
-    img_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/403.gif",
+    gif_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/403.gif",
     cry_url: "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/403.ogg",
     small_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/403.png",
     level: 5,
@@ -67,42 +67,3 @@ Pokemon.create!(
     happiness: 80,
     trainer_id: 1
 )
-
-# Pokemon.create!(
-#     name:"gastly",
-#     description: "",
-#     img_url: "",
-#     cry_url: "",
-#     small_img: "",
-#     level: 0,
-#     xp: 0,
-#     energy: 0,
-#     max_energy: 0,
-#     happiness: 0
-# )
-
-# Pokemon.create!(
-#     name:"gastly",
-#     description: "",
-#     img_url: "",
-#     cry_url: "",
-#     small_img: "",
-#     level: 0,
-#     xp: 0,
-#     energy: 0,
-#     max_energy: 0,
-#     happiness: 0
-# )
-
-# Pokemon.create!(
-#     name:"gastly",
-#     description: "",
-#     img_url: "",
-#     cry_url: "",
-#     small_img: "",
-#     level: 0,
-#     xp: 0,
-#     energy: 0,
-#     max_energy: 0,
-#     happiness: 0
-# )

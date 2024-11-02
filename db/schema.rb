@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_31_204309) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_01_154136) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "pokemons", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "img_url"
+    t.string "gif_url"
     t.string "cry_url"
     t.string "small_img"
     t.integer "level"
