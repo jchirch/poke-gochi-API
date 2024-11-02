@@ -1,8 +1,19 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/models/trainer.rb": {
+      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/models/pokemon.rb": {
         "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           1,
           1,
           1,
@@ -16,14 +27,15 @@
           null
         ]
       },
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/models/pokemon.rb": {
+      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/models/trainer.rb": {
         "lines": [
+          1,
           1,
           1,
           null
         ]
       }
     },
-    "timestamp": 1730581607
+    "timestamp": 1730582787
   }
 }
