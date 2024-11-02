@@ -10,10 +10,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      namespace :trainers do
-        resources :pokemons, controller: "pokemons"
+      resources :trainers, only: :show do
+        resources :pokemons, only: [:create, :show, :update], controller: "pokemons"
       end
-      resources :trainers, only: :show
     end
   end
 end
