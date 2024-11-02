@@ -1,62 +1,12 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/models/trainer.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/controllers/api/v1/trainers_controller.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          2,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/serializers/trainer_serializer.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/serializers/error_serializer.rb": {
+      "/Users/delarosa/Desktop/Mod 3/Projects/poke-gochi-API/app/services/poke_api_service.rb": {
         "lines": [
           1,
           1,
           null,
           1,
-<<<<<<< HEAD
           0,
           0,
           null,
@@ -64,20 +14,12 @@
           1,
           1,
           1,
-=======
-          null,
-          null,
->>>>>>> main
           null,
           null,
           null
         ]
       }
     },
-<<<<<<< HEAD
-    "timestamp": 1730511512
-=======
-    "timestamp": 1730505913
->>>>>>> main
+    "timestamp": 1730519184
   }
 }
