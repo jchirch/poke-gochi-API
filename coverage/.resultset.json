@@ -37,6 +37,15 @@
           null
         ]
       },
+      "/Users/delarosa/Desktop/Mod 3/Projects/poke-gochi-API/spec/models/trainer_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/delarosa/Desktop/Mod 3/Projects/poke-gochi-API/app/models/trainer.rb": {
         "lines": [
           1,
@@ -63,6 +72,6 @@
         ]
       }
     },
-    "timestamp": 1730590216
+    "timestamp": 1730591251
   }
 }
