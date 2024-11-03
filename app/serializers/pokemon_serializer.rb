@@ -9,6 +9,6 @@ class PokemonSerializer
               :xp,
               :energy,
               :max_energy,
-              happiness,
+              :happiness,
               :trainer_id
 end

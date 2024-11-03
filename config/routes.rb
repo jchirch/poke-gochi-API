@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :trainers, only: :show do
-        resources :pokemons, only: [:create, :show, :update], controller: "pokemons"
+        resources :pokemons, only: [:index, :create, :show, :update], controller: "trainers/pokemons"
       end
     end
   end
