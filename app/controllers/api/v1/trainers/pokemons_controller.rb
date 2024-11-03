@@ -22,11 +22,14 @@ class Api::V1::Trainers::PokemonsController < ApplicationController
   end
 
   def show
+    begin
+      trainer = Trainer.find(params[:trainer_id].to_i)
+      pokemon = trainer.pokemons.find(params[:id].to_i)
 
-    trainer = Trainer.find(params[:trainer_id].to_i)
-    pokemon = trainer.pokemons.find(params[:id].to_i)
-
-    render json: PokemonSerializer.new(pokemon)
+      render json: PokemonSerializer.new(pokemon)
+    rescue StandardError => exception
+      render json: ErrorSerializer.format_error(exception, '404'), status: :not_found
+    end
   end
 
   private 

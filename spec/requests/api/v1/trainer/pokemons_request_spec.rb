@@ -179,7 +179,6 @@ RSpec.describe 'Pokemon Endpoints' do
 
       expect(response).to be_successful
       pokemon = JSON.parse(response.body, symbolize_names: true)[:data]
-      # binding.pry
       expect(pokemon).to have_key(:id)
       expect(pokemon[:id]).to eq(@pikachu.id.to_s)
 
@@ -187,11 +186,17 @@ RSpec.describe 'Pokemon Endpoints' do
   end
 
   describe 'show action SAD path' do
-    it 'returns an error message if the trainer doesnt exist in the database' do 
+    it 'return an error message if pokemon doesnt exit in the database' do 
+      get "/api/v1/trainers/#{@trainer1.id}/pokemons/0"
 
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+
+      error = JSON.parse(response.body, symbolize_names: true)
+      expect(error[:message]).to eq("404, result not found")
     end
 
-    it 'return an error message if pokemon doesnt exit in the Pokeapi' do
+    xit 'return an error message if pokemon doesnt exit in the Pokeapi' do
 
     end
   end
