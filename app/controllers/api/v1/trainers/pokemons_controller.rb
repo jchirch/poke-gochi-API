@@ -2,9 +2,16 @@ class Api::V1::Trainers::PokemonsController < ApplicationController
   def create
     pokemon_name = pokemon_params[:name]
     trainer_id = params[:trainer_id]
-    pokemon = Pokemon.populate_with_api_data(pokemon_params, pokemon_name, trainer_id)
-    pokemon.save!
-    render json: PokemonSerializer.new(pokemon)
+    begin
+      pokemon = Pokemon.populate_with_api_data(pokemon_params, pokemon_name, trainer_id)
+      if pokemon.save
+        render json: PokemonSerializer.new(pokemon), status: :created
+      else
+        render json: ErrorSerializer.format_error(pokemon.errors, 422), status: :unprocessable_entity
+      end
+    rescue StandardError => e
+      render json: ErrorSerializer.format_error(e, 422), status: :unprocessable_entity
+    end
   end
 
   private 
