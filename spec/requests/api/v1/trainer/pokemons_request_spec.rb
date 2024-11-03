@@ -150,4 +150,19 @@ RSpec.describe 'Pokemon Endpoints' do
       expect(error_response[:errors]).to include("unexpected token at 'Not Found'")
     end
   end
+  describe 'show action HAPPY path' do
+    it 'returns a specific pokemon for a specific trainer' do
+
+    end
+  end
+
+  describe 'show action SAD path' do
+    it 'returns an error message if the trainer doesnt exist in the database' do 
+
+    end
+    
+    it 'return an error message if pokemon doesnt exit in the Pokeapi' do
+
+    end
+  end
 end
