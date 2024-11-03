@@ -17,5 +17,11 @@ RSpec.describe Pokemon, type: :model do
     it {should validate_presence_of(:max_energy)}
     it {should validate_presence_of(:happiness)}
     it {should validate_presence_of(:trainer_id)}
+
+    it 'validates uniqueness of name' do
+      test_trainer = Trainer.create!(name: "Misty")
+      Pokemon.create!(name: "Pikachu", description: "Electric type", gif_url: "example.com", cry_url: "example.com", small_img: "example.com", level: 1, xp: 1, energy: 1, max_energy: 1, happiness: 1, trainer_id: test_trainer.id)
+      should validate_uniqueness_of(:name).with_message("Pokemon already exists, please choose new Pokemon.")
+    end
   end
 end
