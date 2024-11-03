@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Pokemon Endpoints' do
   before (:each) do
     @trainer1 = Trainer.create!(name: "Red")
+    @trainer2 = Trainer.create!(name: "Blue")
     @pikachu = Pokemon.create!(name: "Pikachu", 
       description: "yellow rat", 
       gif_url: "example.com", 
@@ -24,7 +25,29 @@ RSpec.describe 'Pokemon Endpoints' do
       energy: 1,
       max_energy: 1,
       happiness: 1,
-      trainer_id: @trainer1.id)                             
+      trainer_id: @trainer1.id)
+      @skitty = Pokemon.create!(name: "Skitty", 
+      description: "pink cat", 
+      gif_url: "example.com", 
+      cry_url:  "example.com", 
+      small_img:  "example.com",
+      level: 1,
+      xp: 1,
+      energy: 1,
+      max_energy: 1,
+      happiness: 1,
+      trainer_id: @trainer2.id)
+    @beldum = Pokemon.create!(name: "Beldum", 
+      description: "blue thing", 
+      gif_url: "example.com", 
+      cry_url:  "example.com", 
+      small_img:  "example.com",
+      level: 1,
+      xp: 1,
+      energy: 1,
+      max_energy: 1,
+      happiness: 1,
+      trainer_id: @trainer2.id)
   end
 
   describe "Happy Paths" do
@@ -152,6 +175,13 @@ RSpec.describe 'Pokemon Endpoints' do
   end
   describe 'show action HAPPY path' do
     it 'returns a specific pokemon for a specific trainer' do
+      get "/api/v1/trainers/#{@trainer1.id}/pokemons/#{@pikachu.id}"
+
+      expect(response).to be_successful
+      pokemon = JSON.parse(response.body, symbolize_names: true)[:data]
+      
+      expect(pokemon).to have_key(:id)
+      expect(pokemon[:id]).to be_a(@pikachu.id)
 
     end
   end
@@ -160,7 +190,7 @@ RSpec.describe 'Pokemon Endpoints' do
     it 'returns an error message if the trainer doesnt exist in the database' do 
 
     end
-    
+
     it 'return an error message if pokemon doesnt exit in the Pokeapi' do
 
     end
