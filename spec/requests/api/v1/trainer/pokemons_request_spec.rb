@@ -121,9 +121,7 @@ RSpec.describe 'Pokemon Endpoints' do
       expect(new_pokemon[:cry_url]).to eq("https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/135.ogg")
       expect(new_pokemon[:small_img]).to eq("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/135.png")
     end
-   end
 
-  describe 'create action sad path' do
     it 'returns an error if pokemon doesnt exist in the Pokeapi' do 
       trainer = Trainer.create!(name: "Ash")
       pokemon_params = {
@@ -149,5 +147,6 @@ RSpec.describe 'Pokemon Endpoints' do
       expect(error_response[:message]).to eq("422, result not found")
       expect(error_response[:errors]).to include("unexpected token at 'Not Found'")
     end
-  end
+
+   end
 end
