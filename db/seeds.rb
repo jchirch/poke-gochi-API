@@ -11,6 +11,9 @@
 Trainer.create!(
     name: "Ash"
 )
+Trainer.create!(
+    name: "Gary"
+)
 
 Pokemon.create!(
     name:"Gastly",
@@ -51,7 +54,7 @@ Pokemon.create!(
     energy: 110,
     max_energy: 110,
     happiness: 100,
-    trainer_id: 1
+    trainer_id: 2
 )
 
 Pokemon.create!(
@@ -65,5 +68,5 @@ Pokemon.create!(
     energy: 100,
     max_energy: 150,
     happiness: 80,
-    trainer_id: 1
+    trainer_id: 2
 )

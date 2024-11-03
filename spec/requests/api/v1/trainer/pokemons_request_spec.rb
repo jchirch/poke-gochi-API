@@ -100,6 +100,15 @@ RSpec.describe 'Pokemon Endpoints' do
         expect(attributes[:trainer_id]).to eq(@trainer1.id)
       end
     end
+
+    it 'returns a specific pokemon for a specific trainer' do
+      get "/api/v1/trainers/#{@trainer1.id}/pokemons/#{@pikachu.id}"
+
+      expect(response).to be_successful
+      pokemon = JSON.parse(response.body, symbolize_names: true)[:data]
+      expect(pokemon).to have_key(:id)
+      expect(pokemon[:id]).to eq(@pikachu.id.to_s)
+    end
   end
 
   describe "Sad Paths" do
@@ -109,7 +118,28 @@ RSpec.describe 'Pokemon Endpoints' do
       expect(response.status).to eq(404)
 
       error = JSON.parse(response.body, symbolize_names: true)
-      expect(error[:message]).to eq("404, result not found")
+      expect(error[:message]).to eq("404, Something went wrong")
+    end
+
+    it 'return an error message if pokemon belongs to another trainer' do
+      get "/api/v1/trainers/#{@trainer1.id}/pokemons/#{@skitty.id}"
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(403)
+
+      error = JSON.parse(response.body, symbolize_names: true)
+      expect(error[:message]).to eq("403, Something went wrong")
+      expect(error[:errors]).to eq("Pokemon does not belong to trainer")
+    end
+
+    it 'return an error message if pokemon doesnt exit in the database' do 
+      get "/api/v1/trainers/#{@trainer1.id}/pokemons/0"
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+      error = JSON.parse(response.body, symbolize_names: true)
+      expect(error[:message]).to eq("404, Something went wrong")
+      expect(error[:errors]).to eq("Pokemon not in database")
     end
   end
   
@@ -169,39 +199,8 @@ RSpec.describe 'Pokemon Endpoints' do
       error_response = JSON.parse(response.body, symbolize_names: true)
       
       expect(error_response).to have_key(:message)
-      expect(error_response[:message]).to eq("422, result not found")
+      expect(error_response[:message]).to eq("422, Something went wrong")
       expect(error_response[:errors]).to include("unexpected token at 'Not Found'")
-    end
-  end
-  describe 'show action HAPPY path' do
-    it 'returns a specific pokemon for a specific trainer' do
-      get "/api/v1/trainers/#{@trainer1.id}/pokemons/#{@pikachu.id}"
-
-      expect(response).to be_successful
-      pokemon = JSON.parse(response.body, symbolize_names: true)[:data]
-      expect(pokemon).to have_key(:id)
-      expect(pokemon[:id]).to eq(@pikachu.id.to_s)
-
-    end
-  end
-
-  describe 'show action SAD path' do
-    it 'return an error message if pokemon doesnt exit in the database' do 
-      get "/api/v1/trainers/#{@trainer1.id}/pokemons/0"
-
-      expect(response).to_not be_successful
-      expect(response.status).to eq(404)
-      error = JSON.parse(response.body, symbolize_names: true)
-      expect(error[:message]).to eq("404, result not found")
-    end
-
-    it 'return an error message if pokemon belongs to another trainer' do
-      get "/api/v1/trainers/#{@trainer1.id}/pokemons/#{@skitty.id}"
-
-      expect(response).to_not be_successful
-      expect(response.status).to eq(404)
-      error = JSON.parse(response.body, symbolize_names: true)
-      expect(error[:message]).to eq("404, result not found")
     end
   end
 end
