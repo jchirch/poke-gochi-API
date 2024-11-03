@@ -18,11 +18,49 @@ RSpec.describe Pokemon, type: :model do
     it {should validate_presence_of(:happiness)}
     it {should validate_presence_of(:trainer_id)}
 
-    it 'validates uniqueness of name' do
+    it 'Validates uniqueness of name' do
       test_trainer = Trainer.create!(name: "Misty")
       Pokemon.create!(name: "Pikachu", description: "Electric type", gif_url: "example.com", cry_url: "example.com", small_img: "example.com", level: 1, xp: 1, energy: 1, max_energy: 1, happiness: 1, trainer_id: test_trainer.id)
       should validate_uniqueness_of(:name).with_message("Pokemon already exists, please choose new Pokemon.")
     end
+
+    it 'Validates numericality of level' do
+      test_trainer = Trainer.create!(name: "Misty")
+      Pokemon.new(name: "Pikachu", description: "Electric type", gif_url: "example.com", cry_url: "example.com", small_img: "example.com", level: "potato", xp: 1, energy: 1, max_energy: 1, happiness: 1, trainer_id: test_trainer.id)
+      should validate_numericality_of(:level).with_message("Level must be a number.")
+
+    end
+
+    it 'Validates numericality of xp' do
+      test_trainer = Trainer.create!(name: "Misty")
+      Pokemon.new(name: "Pikachu", description: "Electric type", gif_url: "example.com", cry_url: "example.com", small_img: "example.com", level: 1, xp: "potato", energy: 1, max_energy: 1, happiness: 1, trainer_id: test_trainer.id)
+      should validate_numericality_of(:xp).with_message("XP must be a number.")
+    end
+    
+    it 'Validates numericality of energy' do
+      test_trainer = Trainer.create!(name: "Misty")
+      Pokemon.new(name: "Pikachu", description: "Electric type", gif_url: "example.com", cry_url: "example.com", small_img: "example.com", level: 1, xp: 1, energy: "potato", max_energy: 1, happiness: 1, trainer_id: test_trainer.id)
+      should validate_numericality_of(:energy).with_message("Energy must be a number.")
+    end
+    
+    it 'Validates numericality of max_energy' do
+      test_trainer = Trainer.create!(name: "Misty")
+      Pokemon.new(name: "Pikachu", description: "Electric type", gif_url: "example.com", cry_url: "example.com", small_img: "example.com", level: 1, xp: 1, energy: 1, max_energy: "potato", happiness: 1, trainer_id: test_trainer.id)
+      should validate_numericality_of(:max_energy).with_message("Max energy must be a number.")
+    end
+    
+    it 'Validates numericality of happiness' do
+      test_trainer = Trainer.create!(name: "Misty")
+      Pokemon.new(name: "Pikachu", description: "Electric type", gif_url: "example.com", cry_url: "example.com", small_img: "example.com", level: 1, xp: 1, energy: 1, max_energy: 1, happiness: "potato", trainer_id: test_trainer.id)
+      should validate_numericality_of(:happiness).with_message("Happiness must be a number.")
+    end
+    
+    it 'Validates numericality of trainer_id' do
+      test_trainer = Trainer.create!(name: "Misty")
+      Pokemon.new(name: "Pikachu", description: "Electric type", gif_url: "example.com", cry_url: "example.com", small_img: "example.com", level: 1, xp: 1, energy: 1, max_energy: 1, happiness: 1, trainer_id: "potato")
+      should validate_numericality_of(:trainer_id).with_message("Trainer ID must be a number.")
+    end
+    
   end
   
   describe '.populate_with_api_data' do

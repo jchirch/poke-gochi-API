@@ -31,8 +31,6 @@ class Api::V1::Trainers::PokemonsController < ApplicationController
     rescue StandardError => exception
       render json: ErrorSerializer.format_error(exception.message, 422), status: :unprocessable_entity
     end
-
-
   end
 
   private 

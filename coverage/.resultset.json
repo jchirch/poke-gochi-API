@@ -1,21 +1,6 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/models/trainer.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
       "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/models/pokemon.rb": {
         "lines": [
           1,
@@ -34,7 +19,7 @@
           1,
           null,
           1,
-          2,
+          1,
           1,
           1,
           null,
@@ -58,77 +43,32 @@
           null
         ]
       },
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/controllers/api/v1/trainers/pokemons_controller.rb": {
+      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/models/application_record.rb": {
         "lines": [
           1,
-          null,
-          1,
-          null,
-          2,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          2,
-          2,
-          null,
-          2,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          2,
-          2,
-          null,
-          2,
-          2,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          6,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/controllers/application_controller.rb": {
-        "lines": [
           1,
           null
         ]
       },
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/serializers/pokemon_serializer.rb": {
+      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/spec/models/trainer_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          2,
+          null,
+          1,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/models/trainer.rb": {
         "lines": [
           1,
           1,
           1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null
         ]
       },
@@ -138,31 +78,19 @@
           1,
           null,
           1,
-          2,
-          2,
+          1,
+          1,
           null,
           null,
           1,
           1,
           1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/joechirchirillo/Desktop/3_Mod/projects/consultancy/poke_gochi_api/app/serializers/error_serializer.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          2,
-          null,
           null,
           null,
           null
         ]
       }
     },
-    "timestamp": 1730663726
+    "timestamp": 1730671750
   }
 }
