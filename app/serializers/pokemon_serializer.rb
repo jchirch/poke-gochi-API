@@ -12,3 +12,4 @@ class PokemonSerializer
               :happiness,
               :trainer_id
 end
+
