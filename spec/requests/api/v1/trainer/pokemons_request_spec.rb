@@ -77,21 +77,8 @@ RSpec.describe 'Pokemon Endpoints' do
         expect(attributes[:trainer_id]).to eq(@trainer1.id)
       end
     end
-  end
 
-  describe "Sad Paths" do
-    it "Returns error with invalid request" do
-      get "/api/v1/trainers/0/pokemons"
-      expect(response).to_not be_successful
-      expect(response.status).to eq(404)
-
-      error = JSON.parse(response.body, symbolize_names: true)
-      expect(error[:message]).to eq("404, result not found")
-    end
-  end
-  
-   describe "Create/action" do 
-    it 'creates a pokemon with the correct attributes and saves it to db' do 
+    it 'Creates a pokemon with the correct attributes and saves it to db' do 
       trainer = Trainer.create!(name: "Ash")
       pokemon_params = {
         name: "jolteon",
@@ -122,6 +109,37 @@ RSpec.describe 'Pokemon Endpoints' do
       expect(new_pokemon[:small_img]).to eq("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/135.png")
     end
 
+    it "Updates Pokemon's attributes" do
+      # /api/v1/trainers/:trainer_id/pokemons/:id(.:format)
+      mew_id = @mew.id
+      mew_before_energy = @mew.energy
+      mew_before_happiness = @mew.happiness
+      poke_params = {energy: 50, happiness: 75}
+
+      patch "/api/v1/trainers/#{@trainer1.id}/pokemons/#{@mew.id}", params: poke_params
+
+      updated_mew = Pokemon.find_by(id: mew_id)
+      # require 'pry'; binding.pry
+      expect(response).to be_successful
+
+      expect(updated_mew.energy).to_not eq(mew_before_energy)
+      expect(updated_mew.energy).to eq(50)
+
+      expect(updated_mew.happiness).to_not eq(mew_before_happiness)
+      expect(updated_mew.happiness).to eq(75)
+    end
+  end
+
+  describe "Sad Paths" do
+    it "Returns error with invalid request" do
+      get "/api/v1/trainers/0/pokemons"
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+
+      error = JSON.parse(response.body, symbolize_names: true)
+      expect(error[:message]).to eq("404, result not found")
+    end
+
     it 'returns an error if pokemon doesnt exist in the Pokeapi' do 
       trainer = Trainer.create!(name: "Ash")
       pokemon_params = {
@@ -148,5 +166,23 @@ RSpec.describe 'Pokemon Endpoints' do
       expect(error_response[:errors]).to include("unexpected token at 'Not Found'")
     end
 
-   end
+    it "Returns error from invalid patch params" do
+      mew_id = @mew.id
+      mew_before_energy = @mew.energy
+      mew_before_happiness = @mew.happiness
+      poke_params = {energy: "potato", fake_attribute: 75}
+
+      patch "/api/v1/trainers/#{@trainer1.id}/pokemons/#{@mew.id}", params: poke_params
+
+      expect(response).to be_successful
+      error_response = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(error_response).to have_key(:message)
+      expect(error_response[:message]).to eq("422, result not found")
+      expect(error_response[:errors]).to include("unexpected token at 'Not Found'")
+
+
+
+    end
+  end
 end
