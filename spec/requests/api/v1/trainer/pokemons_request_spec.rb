@@ -191,13 +191,17 @@ RSpec.describe 'Pokemon Endpoints' do
 
       expect(response).to_not be_successful
       expect(response.status).to eq(404)
-
       error = JSON.parse(response.body, symbolize_names: true)
       expect(error[:message]).to eq("404, result not found")
     end
 
-    xit 'return an error message if pokemon doesnt exit in the Pokeapi' do
+    it 'return an error message if pokemon belongs to another trainer' do
+      get "/api/v1/trainers/#{@trainer1.id}/pokemons/#{@skitty.id}"
 
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+      error = JSON.parse(response.body, symbolize_names: true)
+      expect(error[:message]).to eq("404, result not found")
     end
   end
 end
