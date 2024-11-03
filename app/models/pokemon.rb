@@ -1,18 +1,18 @@
 class Pokemon < ApplicationRecord
   belongs_to :trainer
   
-  validates :name, presence: true, uniqueness: {message: "Pokemon already exists, please choose new Pokemon."}
+    validates :name, presence: true, uniqueness: {message: "Pokemon already exists, please choose new Pokemon."}
     validates :description, presence: true
     validates :gif_url, presence: true
     validates :cry_url, presence: true
     validates :small_img, presence: true
-    validates :level, presence: true
-    validates :xp, presence: true
-    validates :energy, presence: true
-    validates :max_energy, presence: true
-    validates :happiness, presence: true
-    validates :trainer_id, presence: true
-
+    validates :level, presence: true, numericality: { message: "Level must be a number." }
+    validates :xp, presence: true, numericality: { message: "XP must be a number." }
+    validates :energy, presence: true, numericality: { message: "Energy must be a number." }
+    validates :max_energy, presence: true, numericality: { message: "Max energy must be a number." }
+    validates :happiness, presence: true, numericality: { message: "Happiness must be a number." }
+    validates :trainer_id, presence: true, numericality: { message: "Trainer ID must be a number." }
+    
   def self.populate_with_api_data(pokemon_params, pokemon_name, trainer_id)
     species_data = PokeApiService.get_pokemon_species(pokemon_name)
     details_data = PokeApiService.get_pokemon_details(pokemon_name)
