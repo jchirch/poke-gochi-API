@@ -179,9 +179,9 @@ RSpec.describe 'Pokemon Endpoints' do
 
       expect(response).to be_successful
       pokemon = JSON.parse(response.body, symbolize_names: true)[:data]
-      
+      # binding.pry
       expect(pokemon).to have_key(:id)
-      expect(pokemon[:id]).to be_a(@pikachu.id)
+      expect(pokemon[:id]).to eq(@pikachu.id.to_s)
 
     end
   end

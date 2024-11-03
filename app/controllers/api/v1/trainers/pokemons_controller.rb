@@ -21,6 +21,14 @@ class Api::V1::Trainers::PokemonsController < ApplicationController
     end
   end
 
+  def show
+
+    trainer = Trainer.find(params[:trainer_id].to_i)
+    pokemon = trainer.pokemons.find(params[:id].to_i)
+
+    render json: PokemonSerializer.new(pokemon)
+  end
+
   private 
 
   def pokemon_params
