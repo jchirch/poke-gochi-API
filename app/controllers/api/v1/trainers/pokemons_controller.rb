@@ -18,7 +18,7 @@ class Api::V1::Trainers::PokemonsController < ApplicationController
       pokemon = Pokemon.populate_with_api_data(pokemon_params, pokemon_name, trainer_id)
       render json: PokemonSerializer.new(pokemon), status: :created if pokemon.save
     rescue StandardError => e
-      render json: ErrorSerializer.format_general_error(e, 422), status: :unprocessable_entity
+      render json: ErrorSerializer.format_specific_error("Pokemon not found", '422'), status: :unprocessable_entity
     end
   end
 
@@ -41,7 +41,7 @@ class Api::V1::Trainers::PokemonsController < ApplicationController
       pokemon.update!(pokemon_params)
       render json: PokemonSerializer.new(pokemon)
     rescue StandardError => exception
-      render json: ErrorSerializer.format_general_error(exception.message, 422), status: :unprocessable_entity
+      render json: ErrorSerializer.format_general_error(exception, 422), status: :unprocessable_entity
     end
   end
 
