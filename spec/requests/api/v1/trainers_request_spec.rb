@@ -24,7 +24,7 @@ RSpec.describe 'Trainer Endpoints' do
       expect(response.status).to eq(404)
 
       error = JSON.parse(response.body, symbolize_names: true)
-      expect(error[:message]).to eq("404, result not found")
+      expect(error[:message]).to eq("404, Something went wrong")
       expect(error[:errors]).to eq(["Couldn't find Trainer with 'id'=0"])
     end
   end

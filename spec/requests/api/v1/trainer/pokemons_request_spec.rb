@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Pokemon Endpoints' do
   before (:each) do
     @trainer1 = Trainer.create!(name: "Red")
+    @trainer2 = Trainer.create!(name: "Blue")
     @pikachu = Pokemon.create!(name: "Pikachu", 
       description: "yellow rat", 
       gif_url: "example.com", 
@@ -24,7 +25,29 @@ RSpec.describe 'Pokemon Endpoints' do
       energy: 1,
       max_energy: 1,
       happiness: 1,
-      trainer_id: @trainer1.id)                             
+      trainer_id: @trainer1.id)
+      @skitty = Pokemon.create!(name: "Skitty", 
+      description: "pink cat", 
+      gif_url: "example.com", 
+      cry_url:  "example.com", 
+      small_img:  "example.com",
+      level: 1,
+      xp: 1,
+      energy: 1,
+      max_energy: 1,
+      happiness: 1,
+      trainer_id: @trainer2.id)
+    @beldum = Pokemon.create!(name: "Beldum", 
+      description: "blue thing", 
+      gif_url: "example.com", 
+      cry_url:  "example.com", 
+      small_img:  "example.com",
+      level: 1,
+      xp: 1,
+      energy: 1,
+      max_energy: 1,
+      happiness: 1,
+      trainer_id: @trainer2.id)
   end
 
   describe "Happy Paths" do
@@ -78,7 +101,50 @@ RSpec.describe 'Pokemon Endpoints' do
       end
     end
 
-    it 'Creates a pokemon with the correct attributes and saves it to db' do 
+    it 'returns a specific pokemon for a specific trainer' do
+      get "/api/v1/trainers/#{@trainer1.id}/pokemons/#{@pikachu.id}"
+
+      expect(response).to be_successful
+      pokemon = JSON.parse(response.body, symbolize_names: true)[:data]
+      expect(pokemon).to have_key(:id)
+      expect(pokemon[:id]).to eq(@pikachu.id.to_s)
+    end
+  end
+
+  describe "Sad Paths" do
+    it "Returns error with invalid request" do
+      get "/api/v1/trainers/0/pokemons"
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+
+      error = JSON.parse(response.body, symbolize_names: true)
+      expect(error[:message]).to eq("404, Something went wrong")
+    end
+
+    it 'return an error message if pokemon belongs to another trainer' do
+      get "/api/v1/trainers/#{@trainer1.id}/pokemons/#{@skitty.id}"
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(403)
+
+      error = JSON.parse(response.body, symbolize_names: true)
+      expect(error[:message]).to eq("403, Something went wrong")
+      expect(error[:errors]).to eq("Pokemon does not belong to trainer")
+    end
+
+    it 'return an error message if pokemon doesnt exit in the database' do 
+      get "/api/v1/trainers/#{@trainer1.id}/pokemons/0"
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+      error = JSON.parse(response.body, symbolize_names: true)
+      expect(error[:message]).to eq("404, Something went wrong")
+      expect(error[:errors]).to eq("Pokemon not in database")
+    end
+  end
+  
+   describe "Create/action" do 
+    it 'creates a pokemon with the correct attributes and saves it to db' do 
       trainer = Trainer.create!(name: "Ash")
       pokemon_params = {
         name: "jolteon",
@@ -162,7 +228,7 @@ RSpec.describe 'Pokemon Endpoints' do
       error_response = JSON.parse(response.body, symbolize_names: true)
       
       expect(error_response).to have_key(:message)
-      expect(error_response[:message]).to eq("422, result not found")
+      expect(error_response[:message]).to eq("422, Something went wrong")
       expect(error_response[:errors]).to include("unexpected token at 'Not Found'")
     end
 
