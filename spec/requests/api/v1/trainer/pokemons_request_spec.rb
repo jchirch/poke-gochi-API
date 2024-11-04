@@ -249,7 +249,7 @@ RSpec.describe 'Pokemon Endpoints' do
       
       expect(error_response).to have_key(:message)
       expect(error_response[:message]).to eq("422, Something went wrong")
-      expect(error_response[:errors]).to include("unexpected token at 'Not Found'")
+      expect(error_response[:errors]).to include("Pokemon not found")
     end
 
     xit "Returns error from invalid patch params" do
