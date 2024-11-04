@@ -203,7 +203,7 @@ RSpec.describe 'Pokemon Endpoints' do
       expect(response.status).to eq(404)
 
       error = JSON.parse(response.body, symbolize_names: true)
-      expect(error[:message]).to eq("404, result not found")
+      expect(error[:message]).to eq("404, Something went wrong")
     end
 
     it 'returns an error if pokemon doesnt exist in the Pokeapi' do 
@@ -240,8 +240,7 @@ RSpec.describe 'Pokemon Endpoints' do
 
       patch "/api/v1/trainers/#{@trainer1.id}/pokemons/#{@mew.id}", params: poke_params
       # expect(response).to have_http_status(:unprocessable_entity)
-      
-      require 'pry'; binding.pry
+
       error_response = JSON.parse(response.body, symbolize_names: true)
     
       expect(error_response).to have_key(:message)
