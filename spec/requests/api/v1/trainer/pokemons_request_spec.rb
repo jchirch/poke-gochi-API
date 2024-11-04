@@ -109,6 +109,26 @@ RSpec.describe 'Pokemon Endpoints' do
       expect(pokemon).to have_key(:id)
       expect(pokemon[:id]).to eq(@pikachu.id.to_s)
     end
+
+    it "Updates Pokemon's attributes" do
+      # /api/v1/trainers/:trainer_id/pokemons/:id(.:format)
+      mew_id = @mew.id
+      mew_before_energy = @mew.energy
+      mew_before_happiness = @mew.happiness
+      poke_params = {energy: 50, happiness: 75}
+
+      patch "/api/v1/trainers/#{@trainer1.id}/pokemons/#{@mew.id}", params: poke_params
+
+      updated_mew = Pokemon.find_by(id: mew_id)
+      # require 'pry'; binding.pry
+      expect(response).to be_successful
+
+      expect(updated_mew.energy).to_not eq(mew_before_energy)
+      expect(updated_mew.energy).to eq(50)
+
+      expect(updated_mew.happiness).to_not eq(mew_before_happiness)
+      expect(updated_mew.happiness).to eq(75)
+    end
   end
 
   describe "Sad Paths" do
