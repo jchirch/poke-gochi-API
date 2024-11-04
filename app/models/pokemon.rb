@@ -1,5 +1,7 @@
 class Pokemon < ApplicationRecord
   belongs_to :trainer
+  after_create :start_happiness_decreaser 
+  after_create :start_energy_decreaser
   
     validates :name, presence: true, uniqueness: {message: "Pokemon already exists, please choose new Pokemon."}
     validates :description, presence: true
@@ -35,4 +37,11 @@ class Pokemon < ApplicationRecord
    description.gsub("\n", ' ').strip
   end
 
+  def start_happiness_decreaser
+    DecrementHappinessJob.perform_later(id)
+  end
+
+  def start_energy_decreaser
+    DecrementEnergyJob.perform_later(id)
+  end
 end
