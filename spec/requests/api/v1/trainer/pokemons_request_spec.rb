@@ -234,22 +234,18 @@ RSpec.describe 'Pokemon Endpoints' do
 
     xit "Returns error from invalid patch params" do
       mew_id = @mew.id
-      # mew_before_energy = @mew.energy
-      # mew_before_happiness = @mew.happiness
-      poke_params = { pokemon: { energy: "potato", fake_attribute: 75 } } 
+      mew_before_energy = @mew.energy
+      mew_before_happiness = @mew.happiness
+      poke_params = {energy: "potato", fake_attribute: 75}
 
       patch "/api/v1/trainers/#{@trainer1.id}/pokemons/#{@mew.id}", params: poke_params
-      # expect(response).to have_http_status(:unprocessable_entity)
 
+      expect(response).to be_successful
       error_response = JSON.parse(response.body, symbolize_names: true)
-    
+
       expect(error_response).to have_key(:message)
       expect(error_response[:message]).to eq("422, result not found")
-      
-      # expect(error_response).to have_key(:errors)
-      # expect(error_response[:errors]).to include("Validation failed: Energy is not a number")
-
-
+      expect(error_response[:errors]).to include("unexpected token at 'Not Found'")
     end
   end
 end

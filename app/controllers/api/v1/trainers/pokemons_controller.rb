@@ -34,6 +34,16 @@ class Api::V1::Trainers::PokemonsController < ApplicationController
     end
   end
 
+  def update
+    trainer = Trainer.find(params[:trainer_id].to_i)
+    pokemon = Pokemon.find(params[:id])
+    begin
+      pokemon.update!(pokemon_params)
+      render json: PokemonSerializer.new(pokemon)
+    rescue StandardError => exception
+      render json: ErrorSerializer.format_general_error(exception.message, 422), status: :unprocessable_entity
+    end
+  end
 
   private 
 
