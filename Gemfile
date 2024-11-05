@@ -52,4 +52,4 @@ end
 
 gem 'jsonapi-serializer'
 #data persistance gem
-
+gem 'sidekiq'
