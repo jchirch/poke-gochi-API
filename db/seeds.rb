@@ -11,16 +11,13 @@
 Trainer.create!(
     name: "Ash"
 )
-Trainer.create!(
-    name: "Gary"
-)
 
 Pokemon.create!(
-    name:"Gastly",
-    description: "spooky boi",
-    gif_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/92.gif",
-    cry_url: "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/92.ogg",
-    small_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png",
+    name:"Bulbasaur",
+    description: "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+    gif_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/1.gif",
+    cry_url: "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/1.ogg",
+    small_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
     level: 1,
     xp: 0,
     energy: 110,
@@ -31,10 +28,10 @@ Pokemon.create!(
 
 Pokemon.create!(
     name:"Charmander",
-    description: "hot lil doggy",
-    gif_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/4.gif",
+    description: "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely",
+    gif_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/4.gif",
     cry_url: "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/4.ogg",
-    small_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/4.png",
+    small_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
     level: 1,
     xp: 0,
     energy: 110,
@@ -44,29 +41,15 @@ Pokemon.create!(
 )
 
 Pokemon.create!(
-    name: "Magikarp",
-    description: "In the distant past, it was somewhat stronger than the horribly weak descendants that exist today.",
-    gif_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/129.gif",
-    cry_url: "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/129.ogg",
-    small_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/129.png",
+    name:"Squirtle",
+    description: "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+    gif_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/7.gif",
+    cry_url: "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/7.ogg",
+    small_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
     level: 1,
     xp: 0,
     energy: 110,
     max_energy: 110,
     happiness: 100,
-    trainer_id: 2
-)
-
-Pokemon.create!(
-    name: "Shinx",
-    description: "This Pokémon generates electricity by contracting\nits muscles. Excited trembling is a sign that Shinx\nis generating a tremendous amount of electricity.",
-    gif_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/403.gif",
-    cry_url: "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/403.ogg",
-    small_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/403.png",
-    level: 5,
-    xp:0,
-    energy: 100,
-    max_energy: 150,
-    happiness: 80,
-    trainer_id: 2
+    trainer_id: 1
 )
