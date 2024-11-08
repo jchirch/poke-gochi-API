@@ -22,7 +22,7 @@ RSpec.describe DecrementHappinessJob, type: :job do
     expect(pikachu.happiness).to eq(100)
 
     perform_enqueued_jobs do
-      DecrementHappinessJob.perform_later(pikachu.id)
+      DecrementHappinessJob.perform_now(pikachu.id)
     end
 
     pikachu.reload

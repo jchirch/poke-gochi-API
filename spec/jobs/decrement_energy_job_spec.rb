@@ -22,7 +22,7 @@ RSpec.describe DecrementEnergyJob, type: :job do
     expect(pikachu.energy).to eq(100)
 
     perform_enqueued_jobs() do
-      DecrementEnergyJob.perform_later(pikachu.id)
+      DecrementEnergyJob.perform_now(pikachu.id)
     end
 
     pikachu.reload

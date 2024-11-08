@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins ["http://localhost:3001", "https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com"]
+    origins ["http://localhost:3001", "https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com", "https://poke-gochi.vercel.app/"]
 
     resource "*",
       headers: :any,
