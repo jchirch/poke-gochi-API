@@ -1,24 +1,49 @@
-# README
+# Poké-Gochi API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Summary
 
-Things you may want to cover:
+This API consumes the [Pokemon API](https://pokeapi.co/) to deliver serialized responses tailored for a companion React App. It has been designed to become a scalable project for future collaboration and expansions. The project was completed by a team of five developers over a focused 10-day sprint.
 
-* Ruby version
+## Installation
 
-* System dependencies
+To set up: clone this repo into new directory on local device.
 
-* Configuration
+Install Dependencies: run `bundle install`
 
-* Database creation
+Start Server: run `rails server`
 
-* Database initialization
+## Testing
 
-* How to run the test suite
+Once in root directory: run `bundle exec rspec spec/requests` or `bundle exec rspec spec/models` .
 
-* Services (job queues, cache servers, search engines, etc.)
+To access SimpleCov browser run `open coverage/index.html` .
 
-* Deployment instructions
 
-* ...
+## Contributors
+
+- Chirchirillo, Joe
+  - [Github](https://github.com/jchirch)
+  - [LinkedIn](https://www.linkedin.com/in/joechirchirillo/)
+
+- Delaney, Kyle
+  - [Github](https://github.com/kylomite)
+  - [LinkedIn](https://www.linkedin.com/in/kylehamptondelaney/)
+
+- De La Rosa, Melchor
+  - [Github](https://github.com/MDelarosa1993)
+  - [LinkedIn](https://www.linkedin.com/in/melchordelarosa/)
+
+- Fallenius, Karl
+  - [Github](https://github.com/SmilodonP)
+  - [LinkedIn](https://www.linkedin.com/in/karlfallenius/)
+
+- O'leary, Ryan
+  - [Github](https://github.com/ROlearyPro)
+  - [LinkedIn](https://www.linkedin.com/in/ryan-o-leary-6a963b211/)
+
+
+## Tech Stack
+
+- Ruby 3.2.2
+- Rails 7.1.5
+- RSpec 3.13
