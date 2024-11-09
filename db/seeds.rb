@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Trainer.create!(
+trainer = Trainer.create!(
     name: "Ash"
 )
 
@@ -23,7 +23,7 @@ Pokemon.create!(
     energy: 110,
     max_energy: 110,
     happiness: 100,
-    trainer_id: 1
+    trainer_id: trainer.id
 )
 
 Pokemon.create!(
@@ -37,7 +37,7 @@ Pokemon.create!(
     energy: 110,
     max_energy: 110,
     happiness: 100,
-    trainer_id: 1
+    trainer_id: trainer.id
 )
 
 Pokemon.create!(
@@ -51,5 +51,5 @@ Pokemon.create!(
     energy: 110,
     max_energy: 110,
     happiness: 100,
-    trainer_id: 1
+    trainer_id: trainer.id
 )
